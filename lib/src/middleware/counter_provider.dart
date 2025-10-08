@@ -8,8 +8,8 @@ class Counter {
   int get count => _count;
 }
 
+Counter? _counter;
+
 Middleware counterProvider() {
-  return provider<Counter>((context) {
-    return Counter();
-  });
+  return provider<Counter>((_) => _counter ??= Counter());
 }
